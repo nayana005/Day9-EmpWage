@@ -3,16 +3,29 @@ package com.bridgelabz.emp_wage9;
 public class OopsEmpWage {
 	
 	static final int isFullTime = 1;
+    static final int empRatePerHour = 20;
 
-    // Method to check employee is present or absent by using random function
-    public static void empCheck() {
+    // Method to Calculate daily employee wage
+    public static void dailyEmployeeWage() {
 
+        // Variables
+        int empHour = 0;
+        int empWage = 0;
         double empCheck = Math.floor(Math.random() * 10 ) % 2;
-        if(empCheck == isFullTime)
+
+        if(empCheck == isFullTime) {
             System.out.println("Employee is present !");
-        else
+            empHour = 8;
+        }
+        else {
             System.out.println("Employee is absent !");
+            empHour = 0;
+        }
+        empWage = empHour * empRatePerHour;
+        System.out.println("Daily Employee Wage = " +empWage);
     }
 }
+	
+	
 
 
