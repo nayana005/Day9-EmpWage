@@ -4,26 +4,18 @@ public class OopsEmpWage {
 	
 	public static final int isPartTime = 1;
     public static final int isFullTime = 2;
-    public static final int empRatePerHour = 20;
-    public static final int numOfWorkingDay = 20;
-    public static final int maxWorkingHour = 100;
 
-    // Method to Calculate Monthly employee wage
-    public static int computeEmpWage() {
+    public static int computeEmpWage(String company, int empRatePerHour, int numOfWorkingDays, int maxHourPerMonth) {
 
         // Variables
-        int empHour = 0;
-        int empWage = 0;
-        int totalEmpHour = 0;
-        int totalEmpWage = 0;
-        int totalWorkingDays = 0;
+        int empHour = 0, totalEmpHour = 0, totalWorkingDays = 0;
 
-        while(totalEmpHour <= maxWorkingHour && totalWorkingDays < numOfWorkingDay) {
+        // Computation
+        while(totalEmpHour <= maxHourPerMonth && totalWorkingDays < numOfWorkingDays) {
             totalWorkingDays++;
-            int empCheck = (int) Math.floor(Math.random() * 10 ) % 3;
+            int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 
-            // Switch case statement
-            switch(empCheck) {
+            switch (empCheck) {
 
                 case isFullTime:
                     empHour = 8;
@@ -34,18 +26,22 @@ public class OopsEmpWage {
                     break;
 
                 default:
-                    empHour = 0;
+                	empHour = 0;
             }
             // Calculation
             totalEmpHour += empHour;
-            System.out.println("Days : " +totalWorkingDays +" Emp Hour :" +empHour);
+            System.out.println("Days : " + totalWorkingDays + " Emp Hour :" + empHour);
         }
-        totalEmpWage = totalEmpHour * empRatePerHour;
-        System.out.println("\nTotal Employee wage = " +totalEmpWage);
+        int totalEmpWage = totalEmpHour * empRatePerHour;
+        System.out.println("\nTotal Employee Wage for company : " +company+ " is :"+totalEmpWage);
+        System.out.println();
+        System.out.println("=====================================================================");
         return totalEmpWage;
     }
+
+
 }
-	
+
 	
 	
 	
